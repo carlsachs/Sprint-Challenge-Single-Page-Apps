@@ -3,15 +3,22 @@ import React, { useState } from "react";
 export default function SearchForm(props) {
   const [result, setResult] = useState();
   const handleChanges = event => {
+    console.log(result);
     setResult(event.target.value);
   };
 
   const submitHandler = event => {
     event.preventDefault();
   }
+
+  const filter = props.character.filter(character => {
+    return character.name.indexOf(result) !== -1;
+  });
+  props.searching(filter)
+
  
   return (
-    <section className="search-form">
+    <section>
     <form onSubmit={submitHandler}>
     <input
       onChange={handleChanges}
@@ -23,5 +30,5 @@ export default function SearchForm(props) {
     </form>
     </section>
   );
-}
 
+  }

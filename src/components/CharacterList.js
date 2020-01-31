@@ -24,7 +24,7 @@ export default function CharacterList() {
 
   return (
     <div>
-      <Link to="/WelcomePage" component={WelcomePage}>Back to Home</Link>
+      <Link to="/welcome-page" component={WelcomePage}>Back to Home</Link>
       <SearchForm />
       {dataIsFiltered.map(character => (
         <CharacterCard
