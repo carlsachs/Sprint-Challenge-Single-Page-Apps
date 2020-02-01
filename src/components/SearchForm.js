@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 
 export default function SearchForm(props) {
-  const [result, setResult] = useState();
+  const [characters, setCharacters] = useState([]);
+  const [result, setResult] = useState("");
+
   const handleChanges = event => {
-    console.log(result);
     setResult(event.target.value);
   };
 
@@ -11,6 +12,11 @@ export default function SearchForm(props) {
     event.preventDefault();
   }
 
+  const search = props.characters.filter(character => {
+    return character.name.indexOf(result) !== -1;
+  });
+  props.searching(search)
+ 
   return (
     <section>
     <form onSubmit={submitHandler}>
@@ -26,3 +32,4 @@ export default function SearchForm(props) {
   );
 
   }
+
