@@ -14,8 +14,8 @@ export default function CharacterList() {
     axios.get(`https://rickandmortyapi.com/api/character/`)
       .then(response => {
         console.log(response);
-        // setCharacters(response.data.results);
-        // setDataIsFiltered(response.data.results);
+        setCharacters(response.data.results);
+        setDataIsFiltered(response.data.results);
       })
         .catch(error => {
           console.error(error);

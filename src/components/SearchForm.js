@@ -11,12 +11,6 @@ export default function SearchForm(props) {
     event.preventDefault();
   }
 
-  const filter = props.character.filter(character => {
-    return character.name.indexOf(result) !== -1;
-  });
-  props.searching(filter)
-
- 
   return (
     <section>
     <form onSubmit={submitHandler}>
