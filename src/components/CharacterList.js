@@ -10,6 +10,10 @@ export default function CharacterList() {
   const [characters, setCharacters] = useState([]);
   const [dataIsFiltered, setDataIsFiltered] = useState([]);
 
+    const search = charArr => {
+      setDataIsFiltered(charArr)
+    }
+
   useEffect(() => {
     axios.get(`https://rickandmortyapi.com/api/character/`)
       .then(response => {
@@ -25,7 +29,8 @@ export default function CharacterList() {
   return (
     <div>
       <Link to="/welcome-page" component={WelcomePage}>Back to Home</Link>
-      <SearchForm />
+      <SearchForm search={search} characters={characters}
+      />
       {dataIsFiltered.map(character => (
         <CharacterCard
           key={character.id}
