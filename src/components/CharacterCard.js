@@ -3,11 +3,16 @@ import styled from "styled-components";
 
 const Card = styled.div`
     display:flex;
+    flex-direction: column;
+    width: 100%;
+    align-content: center;
     h1 {
       color: blue;
+      text-align: center;
     }
     h2 {
       color: green;
+      text-align: center;
     }
 
 `;
